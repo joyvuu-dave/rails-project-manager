@@ -3,6 +3,6 @@
   <td><%= truncate(task.description) %></td>
   <td>
     <%= task.status %>
-    <button class="js-delete-task btn pull-right">Delete</button>
+    <button data-task-id="<%= task.id %>" class="js-delete-task btn pull-right">Delete</button>
   </td>
 </tr>

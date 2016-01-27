@@ -2,7 +2,7 @@ $("#tasks").html("<%= escape_javascript(render(partial: 'projects/tasks')).html_
 
 $ ->
   $('.js-delete-task').click((e) ->
-    id = $(e.target).parent()[0].id
+    id = $(e.target).data('taskId')
     $.ajax({
       url: "/tasks/#{id}",
       type: 'DELETE'
