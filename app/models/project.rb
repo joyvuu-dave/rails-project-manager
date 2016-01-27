@@ -13,5 +13,10 @@ class Project < ActiveRecord::Base
   has_many :users, through: :project_users
   has_many :tasks, dependent: :destroy
   accepts_nested_attributes_for :tasks, reject_if: proc { |attributes| attributes['name'].blank? }
+  before_destroy :check_for_open_tasks
+  private
 
+    def check_for_open_tasks
+      false if tasks.pluck(:status).any? { |status| status == 'started' || status == 'finished' }
+    end
 end
