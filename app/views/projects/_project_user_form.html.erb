@@ -1,0 +1,3 @@
+<%= f.fields_for :project_users do |project_users_form| %>
+  <%= project_users_form.hidden_field :user_id, value: current_user.id %>
+<% end %>

@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @project.tasks.build
+    @project.project_users.build
   end
 
   # GET /projects/1/edit
@@ -48,7 +49,6 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    project_params[:project_users_attributes][:user_id] = current_user.id
     @project = Project.new(project_params)
 
     respond_to do |format|
