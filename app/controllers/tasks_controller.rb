@@ -17,6 +17,8 @@
 
 class TasksController < ApplicationController
   before_action :set_task
+  before_action :signed_in
+
   # DELETE /tasks/:id
   def destroy
     @task.destroy
@@ -26,5 +28,11 @@ class TasksController < ApplicationController
   private
     def set_task
       @task = Task.find(params[:id])
+    end
+
+    def signed_in
+      unless current_user.present?
+        render js: "alert('You must be signed in.')", status: :unauthorized
+      end
     end
 end
