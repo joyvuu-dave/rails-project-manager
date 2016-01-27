@@ -106,6 +106,7 @@ class ProjectsController < ApplicationController
     end
 
     def confirm_user
+      return if current_user.role == 100
 
       unless ProjectUser.exists?(user_id: current_user.id, project_id: @project.id)
         respond_to do |format|
