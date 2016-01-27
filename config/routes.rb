@@ -3,6 +3,8 @@ ProjectManager::Application.routes.draw do
   resources :projects
   root to: 'pages#home'
 
+  get '/projects/:id/tasks' => 'projects#tasks', as: :project_tasks
+  delete '/tasks/:id' => 'tasks#destroy', as: :delete_task
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -44,7 +46,7 @@ ProjectManager::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

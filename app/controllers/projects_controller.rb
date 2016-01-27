@@ -1,5 +1,15 @@
+# == Schema Information
+#
+# Table name: projects
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only: [:show, :edit, :update, :destroy, :tasks]
 
   # GET /projects
   # GET /projects.json
@@ -10,6 +20,15 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+  end
+
+  # GET /projects/:id/tasks
+  def tasks
+    @tasks = @project.tasks
+
+    respond_to do |format|
+      format.js { render 'tasks.js.erb' }
+    end
   end
 
   # GET /projects/new

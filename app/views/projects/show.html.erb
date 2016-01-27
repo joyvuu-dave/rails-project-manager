@@ -5,5 +5,9 @@
   <%= @project.name %>
 </p>
 
+<%= button_to 'View Tasks', project_tasks_path(@project), class: 'btn btn-primary', method: :get, remote: true %>
+
+<div id="tasks"></div>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

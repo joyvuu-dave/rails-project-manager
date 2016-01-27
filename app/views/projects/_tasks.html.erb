@@ -1,0 +1,17 @@
+<h1>Tasks</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <%= render 'projects/task', task: task %>
+    <% end %>
+  </tbody>
+</table>
