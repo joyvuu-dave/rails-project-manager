@@ -54,12 +54,13 @@ gem 'devise'
 # pagination
 gem 'kaminari'
 # twitter bootstrap layout
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', '2.2.7'
 
 gem 'quiet_assets'
 
 gem 'thin'
-
+gem 'annotate', group: :development
+gem 'pry-rails', group: :development
 # use thin webserver
 # gem 'thin'
 
