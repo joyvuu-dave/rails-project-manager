@@ -7,15 +7,26 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-user1 = User.create(fname: 'Barack', lname: 'Obama', email: 'potus@whitehouse.gov', password: 'potus1', role: 100)
-user2 = User.create(fname: 'Bo', email: 'bo@whitehouse.gov', password: 'thedog')
+user1 = User.create(fname: 'Admin', email: 'admin@email.com', password: 'password1', role: 100)
+user2 = User.create(fname: 'User', email: 'user@email.com', password: 'password1')
 
-project = Project.create(name: 'Treehouse')
+project1 = Project.create(name: "Admin's Project")
+project2 = Project.create(name: "User's Project")
+project3 = Project.create(name: 'Shared Project')
 
-ProjectUser.create(user_id: user1.id, project_id: project.id)
-ProjectUser.create(user_id: user2.id, project_id: project.id)
+ProjectUser.create(user_id: user1.id, project_id: project1.id)
+ProjectUser.create(user_id: user2.id, project_id: project2.id)
+ProjectUser.create(user_id: user1.id, project_id: project3.id)
+ProjectUser.create(user_id: user2.id, project_id: project3.id)
 
-Task.create(name: 'Find Tree', description: 'search the ground for a big tree', status: 'finished', project_id: project.id)
-Task.create(name: 'Build', description: 'build the actual tree house', status: 'started', project_id: project.id)
-Task.create(name: 'Party', description: 'have a opening gala at the tree house', status: 'unstarted', project_id: project.id)
+Task.create(name: 'Admin task 1', description: 'aaa', status: 'unstarted', project_id: project1.id)
+Task.create(name: 'Admin task 2', description: 'bbb', status: 'started', project_id: project1.id)
+Task.create(name: 'Admin task 3', description: 'ccc', status: 'finished', project_id: project1.id)
 
+Task.create(name: 'User task 1', description: 'aaa', status: 'unstarted', project_id: project2.id)
+Task.create(name: 'User task 2', description: 'bbb', status: 'started', project_id: project2.id)
+Task.create(name: 'User task 3', description: 'ccc', status: 'finished', project_id: project2.id)
+
+Task.create(name: 'Shared task 1', description: 'aaa', status: 'unstarted', project_id: project3.id)
+Task.create(name: 'Shared task 2', description: 'bbb', status: 'started', project_id: project3.id)
+Task.create(name: 'Shared task 3', description: 'ccc', status: 'finished', project_id: project3.id)
