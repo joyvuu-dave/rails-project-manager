@@ -1,0 +1,20 @@
+<%= f.fields_for :tasks do |tasks_form| %>
+
+  <h3>Task</h3>
+
+  <div class="field">
+    <%= tasks_form.label :name %><br>
+    <%= tasks_form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= tasks_form.label :description %><br>
+    <%= tasks_form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= tasks_form.label :status %><br>
+    <%= tasks_form.select :status, [['unstarted'], ['started'], ['finished']] %>
+  </div>
+
+<% end %>

@@ -30,6 +30,17 @@ ActiveRecord::Schema.define(version: 20130801084803) do
     t.datetime "updated_at"
   end
 
+  create_table "tasks", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "status"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

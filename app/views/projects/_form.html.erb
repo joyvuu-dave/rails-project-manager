@@ -15,6 +15,9 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+  <%= render partial: 'task_form', locals: {f: f} %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
